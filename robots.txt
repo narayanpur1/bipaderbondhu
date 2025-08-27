@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://narayanpur1.github.io/bipaderbondhu/sitemap.xml
