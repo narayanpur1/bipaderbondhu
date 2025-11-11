@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <!-- GOOGLE SITE VERIFICATION -->
   <meta name="google-site-verification" content="oUaLdoXLprivqFBcJFMWFpkNEotTDtG0YBuW-5i-wms" />
-
   <!-- SEO Title -->
   <title>Bipader Bondhu — NGO for Disaster Relief & Community Support</title>
 
@@ -15,7 +13,6 @@
 
   <!-- Canonical URL -->
   <link rel="canonical" href="https://narayanpur1.github.io/bipaderbondhu/" />
-
   <!-- Open Graph for Social Previews -->
   <meta property="og:title" content="Bipader Bondhu — NGO for Disaster Relief & Community Support">
   <meta property="og:description" content="Supporting disaster-stricken communities through relief, education, and welfare programs. Join us." />
@@ -23,821 +20,342 @@
   <meta property="og:image" content="https://narayanpur1.github.io/bipaderbondhu/Images/logo.png" />
   <meta property="og:type" content="website" />
 
-  <!-- Favicon -->
-  <link rel="icon" href="Images/logo.png" type="image/x-icon">
+  <meta name="google-site-verification" content="oUaLdoXLprivqFBcJFMWFpkNEotTDtG0YBuW-5i-wms">
 
-  <!-- Your existing resources -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="Images/logo.png" type="image/x-icon">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+ <link rel="stylesheet" href="style.css">
 </head>
-
-
-<body class="bg-dark text-slate-200">
-    <!-- Navigation -->
-    <nav class="fixed w-full bg-darker/80 backdrop-blur-sm z-50 shadow-lg">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <a href="#home" class="text-2xl font-bold gradient-text">BipaderBondhu</a>
-                
-                <!-- Mobile menu button -->
-                <div class="md:hidden">
-                    <button id="menu-toggle" class="text-slate-200 hover:text-primary focus:outline-none">
-                        <i class="fas fa-bars text-2xl"></i>
-                    </button>
-                </div>
-                
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="nav-link active">Home</a>
-                    <a href="#about" class="nav-link">About</a>
-                    <a href="#funddonation" class="nav-link">Fund Donation</a>
-                    <a href="#gallery" class="nav-link">Gallery</a>
-                    <a href="#contact" class="nav-link">Contact</a>
-                </div>
-            </div>
-            
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-2">
-                <a href="#home" class="block py-2 nav-link active">Home</a>
-                <a href="#about" class="block py-2 nav-link">About</a>
-                <a href="#funddonation" class="block py-2 nav-link">Fund Donation</a>
-                <a href="#gallery" class="block py-2 nav-link">Gallery</a>
-                <a href="#contact" class="block py-2 nav-link">Contact</a>
-            </div>
+<body>
+  <nav class="glass-nav fixed w-full top-0 z-50">
+    <div class="container mx-auto px-6 py-4">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center space-x-3">
+          <img src="Images/logo.png" alt="Logo" class="w-12 h-12 rounded-full shadow-lg">
+          <h1 class="text-2xl font-bold text-white">Bipader Bondhu</h1>
         </div>
-    </nav>
-    
-    <!-- Hero Section -->
-<section id="home" class="min-h-screen flex items-center pt-20">
-  <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
-    <div class="md:w-1/2 mb-12 md:mb-0">
-      <h1 class="text-4xl md:text-6xl font-bold mb-4">
-        Hi, We are <span class="gradient-text">Narayan Pur Bipader Bondhu Welfare Society</span>
-      </h1>
-      <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-slate-300">
-        An NGO for Humanity & Social Welfare
-      </h2>
-      <p class="text-lg mb-8 text-slate-400 max-w-lg">
-        We create digital and real-world initiatives that are impactful, accessible, and community-driven — crafted to support, inspire, and serve those in need.
-      </p>
-
-      <!-- ✅ Buttons Row -->
-      <div class="flex space-x-4">
-        <a href="#funddonation" 
-           class="px-6 py-3 rounded-full btn-primary font-medium">
-          Donate Money
-        </a>
-
-        <a href="#gallery" 
-           class="px-6 py-3 rounded-full border border-primary text-primary font-medium hover:bg-primary/10 transition">
-          View Work
-        </a>
-
-        <!-- ✅ Admin Login Button -->
-        <button id="adminBtn"
-          class="px-6 py-3 rounded-full border border-red-500 text-red-500 font-medium hover:bg-red-500 hover:text-white transition">
-          Admin Login
+        <div class="hidden md:flex items-center space-x-6">
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#posts" class="nav-link">Posts</a>
+          <a href="#donate" class="nav-link">Donate</a>
+          <a href="#contact" class="nav-link">Contact</a>
+          <div id="authSection"></div>
+        </div>
+        <button id="mobileMenuBtn" class="md:hidden text-white text-2xl">
+          <i class="fas fa-bars"></i>
         </button>
       </div>
-
-      <!-- ✅ Social Links -->
-      <div class="flex space-x-8 mt-6">
-        <!-- Facebook -->
-        <a href="https://www.facebook.com/tariful.mia.2025" target="_blank" 
-           class="text-slate-400 hover:text-blue-600 transition">
-          <i class="fa-brands fa-facebook-f text-xl"></i>
-        </a>
-
-        <!-- WhatsApp -->
-        <a href="https://wa.me/9733725202" target="_blank" 
-           class="text-slate-400 hover:text-green-500 transition">
-          <i class="fa-brands fa-whatsapp text-xl"></i>
-        </a>
-
-        <!-- Google Maps -->
-        <a href="https://www.google.com/maps/place/23%C2%B055'01.0%22N+88%C2%B030'46.3%22E/@23.9169444,88.5128611,17z/data=!3m1!4b1!4m4!3m3!8m2!3d23.9169444!4d88.5128611!5m1!1e4?hl=en&entry=ttu&g_ep=EgoyMDI1MDgxMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" 
-           class="text-slate-400 hover:text-red-500 transition">
-          <i class="fa-solid fa-map-location-dot text-xl"></i>
-        </a>
+      <div id="mobileMenu" class="hidden md:hidden mt-4 space-y-2">
+        <a href="#home" class="block py-2 text-white nav-link">Home</a>
+        <a href="#about" class="block py-2 text-white nav-link">About</a>
+        <a href="#posts" class="block py-2 text-white nav-link">Posts</a>
+        <a href="#donate" class="block py-2 text-white nav-link">Donate</a>
+        <a href="#contact" class="block py-2 text-white nav-link">Contact</a>
+        <div id="authSectionMobile" class="py-2"></div>
       </div>
     </div>
+  </nav>
 
-    <!-- ✅ Right Side Logo -->
-    <div class="md:w-1/2 flex justify-center">
-      <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
-        <div class="absolute inset-0 rounded-full bg-gradient-to-br from-primary to-secondary blur-xl opacity-20"></div>
-        <img src="Images/logo.png" 
-             alt="Profile" 
-             class="relative w-full h-full object-cover rounded-full border-4 border-slate-800 floating">
-      </div>
-    </div>
-  </div>
-</section>
-
-  <!-- ✅ Lightbox -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-
-<!-- ===================== GALLERY ===================== -->
-<section id="gallery" class="py-20 bg-darker">
-  <div class="container mx-auto px-6">
-    <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">
-        Our <span class="gradient-text">Gallery</span>
-      </h2>
-      <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
-    </div>
-
-    <!-- ✅ Dynamic Grid (JS will populate) -->
-    <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
-
-    <!-- View All Button -->
-    <div class="text-center mt-12">
-      <button id="view-all-btn" class="px-8 py-3 rounded-full btn-primary font-medium inline-flex items-center">
-        View All Gallery <i class="fas fa-arrow-right ml-2"></i>
-      </button>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== ABOUT + ADMIN BUTTON ===================== -->
-<section id="about" class="py-20 bg-darker">
-  <div class="container mx-auto px-6">
-    <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">
-        About <span class="gradient-text">Us</span>
-      </h2>
-      <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
-    </div>
-
-    <div class="flex flex-col md:flex-row items-center">
-      <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
-        <div class="relative w-64 h-64">
-          <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary to-secondary blur-xl opacity-20"></div>
-          <img
-            src="Images/img1.jpg"
-            alt="About BipaderBondhu"
-            class="relative w-full h-full object-cover rounded-2xl border-4 border-slate-800"
-          />
-        </div>
-      </div>
-
-      <div class="md:w-2/3 md:pl-12">
-        <h3 class="text-2xl font-bold mb-6">Who We Are?</h3>
-        <p class="text-slate-400 mb-6">
-          BipaderBondhu is a non-profit organization dedicated to serving humanity with compassion and commitment. It works to support people in times of crisis, offering help to those facing poverty, disaster, or any form of hardship. Guided by the values of empathy, solidarity, and selflessness, BipaderBondhu strives to bring hope and relief to vulnerable communities. Through its initiatives, the organization aims to create a safer, more supportive society where people stand together in times of need.
-        </p>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          <div>
-            <h4 class="font-semibold mb-2">
-              Director Name: <span class="text-slate-300">Tariful Mia</span>
-            </h4>
-            <h4 class="font-semibold mb-2">
-              Email: <span class="text-slate-300">narayanpurbipaderbondhu@gmail.com</span>
-            </h4>
-            <h4 class="font-semibold mb-2">
-              Phone: <span class="text-slate-300">+91 9733725202</span>
-            </h4>
-          </div>
-          <div>
-            <h4 class="font-semibold mb-2">
-              Location:
-              <span class="text-slate-300">Narayan Pur, Nadia, West Bengal, India</span>
-            </h4>
-          </div>
-        </div>
-
-        <div class="flex flex-wrap gap-4">
-          <a
-            href="https://drive.google.com/file/d/1EI5mRZY-mGfezAxVz605lU3yC6Al9xfo/view?usp=sharing"
-            target="_blank"
-            class="px-6 py-3 rounded-full btn-primary font-medium"
-          >View Registration Certificate</a>
-
-          <a
-            href="#contact"
-            class="px-6 py-3 rounded-full border border-primary text-primary font-medium hover:bg-primary/10 transition"
-          >Contact Us</a>
-
-          <!-- ✅ Admin Panel Button -->
-          <button
-            id="adminBtn"
-            type="button"
-            class="px-6 py-3 rounded-full border border-red-500 text-red-500 font-medium hover:bg-red-500/10 transition"
-          >Admin Panel</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== ADMIN MODAL ===================== -->
-<div
-  id="adminModal"
-  class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50"
-  role="dialog"
-  aria-modal="true"
-  aria-labelledby="admin-modal-title"
->
-  <div class="bg-white rounded-2xl p-8 w-full max-w-md shadow-lg relative">
-    <!-- Login Form -->
-    <div id="loginForm">
-      <h3 id="admin-modal-title" class="text-xl font-bold mb-4">Admin Login</h3>
-      <input
-        type="email"
-        id="adminEmail"
-        placeholder="Email"
-        class="w-full mb-3 p-2 border rounded"
-        autocomplete="username"
-      />
-      <input
-        type="password"
-        id="adminPass"
-        placeholder="Password"
-        class="w-full mb-3 p-2 border rounded"
-        autocomplete="current-password"
-      />
-      <button id="loginBtn" class="w-full bg-primary text-white py-2 rounded">
-        Login
-      </button>
-    </div>
-
-    <!-- Upload Form (hidden until login) -->
-    <div id="uploadForm" class="hidden">
-      <h3 class="text-xl font-bold mb-4">Upload Photo</h3>
-      <input type="file" id="photoInput" accept="image/*" class="w-full mb-3" />
-      <input
-        type="text"
-        id="captionInput"
-        placeholder="Enter caption"
-        class="w-full mb-3 p-2 border rounded"
-      />
-      <button id="uploadBtn" class="w-full bg-green-600 text-white py-2 rounded mb-3">
-        Submit
-      </button>
-      <button id="logoutBtn" class="w-full bg-red-600 text-white py-2 rounded">
-        Logout
-      </button>
-    </div>
-
-    <!-- Close -->
-    <button
-      id="closeModal"
-      type="button"
-      class="absolute top-3 right-3 text-gray-500 hover:text-black"
-      aria-label="Close admin modal"
-    >✖</button>
-  </div>
-</div>
-
-            
-            <!-- Our Work Section -->
-
-    
-    <!-- Fund Donation -->
-    <!-- Fund Donation Section -->
-<section id="funddonation" class="py-20 bg-dark">
-  <div class="container mx-auto px-6 text-center">
-    <!-- Heading -->
-    <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">
-        Fund <span class="gradient-text">Donation</span>
-      </h2>
-      <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
-      <p class="mt-6 text-slate-300 max-w-2xl mx-auto">
-        Your generous contributions help us organize blood donation camps, relief programs, 
-        food distribution, and social welfare activities. Every small contribution makes a big difference!
-      </p>
-    </div>
-
-    <!-- Bank Details + QR -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-      
-      <!-- Bank Details -->
-      <div class="bg-gray-800 p-8 rounded-2xl shadow-lg text-left">
-        <h3 class="text-2xl font-bold mb-6 text-white">Bank Account Details</h3>
-        <ul class="space-y-4 text-slate-300">
-          <li><strong>Account Name:</strong> Narayanpur Bipader Bondhu Welfare Society</li>
-          <li><strong>Account Number:</strong> 0332200100021066</li>
-          <li><strong>Bank Name:</strong> Punjab National Bank</li>
-          <li><strong>IFSC Code:</strong> PUNB0033220</li>
-          <li><strong>Branch:</strong> Nazirpur</li>
-        </ul>
-      </div>
-
-      <!-- QR Code -->
-      <div class="flex flex-col items-center">
-        <h3 class="text-2xl font-bold mb-6 text-white">Donate via UPI</h3>
-        <div class="bg-white p-4 rounded-xl shadow-lg">
-          <img src="Images/qr.jpg" alt="UPI QR Code" class="w-64 h-64 object-contain">
-        </div>
-        <p class="mt-4 text-slate-300">Scan this QR code using any UPI app to donate instantly.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-            
-          <!-- Blood Donation Section -->
-<div class="mt-16">
-  <h3 class="text-2xl font-bold mb-8 text-center">
-    Blood <span class="gradient-text">Donation</span>
-  </h3>
-
-  <!-- Motivational Text -->
-  <p class="text-center text-slate-300 max-w-2xl mx-auto mb-10">
-    A single pint of blood can save up to <strong>three lives</strong>.  
-    Be the reason someone smiles today — donate blood and give the gift of life.
-  </p>
-
-  <!-- Blood Group Compatibility Table -->
-  <div class="overflow-x-auto">
-    <table class="w-full md:w-3/4 mx-auto text-center border border-slate-700 rounded-xl overflow-hidden">
-      <thead class="bg-slate-800 text-white">
-        <tr>
-          <th class="p-3">Blood Group</th>
-          <th class="p-3">Can Donate To</th>
-          <th class="p-3">Can Receive From</th>
-        </tr>
-      </thead>
-      <tbody class="bg-slate-900 text-slate-300">
-        <tr>
-          <td class="p-3 font-bold">A+</td>
-          <td class="p-3">A+, AB+</td>
-          <td class="p-3">A+, A-, O+, O-</td>
-        </tr>
-        <tr>
-          <td class="p-3 font-bold">A-</td>
-          <td class="p-3">A+, A-, AB+, AB-</td>
-          <td class="p-3">A-, O-</td>
-        </tr>
-        <tr>
-          <td class="p-3 font-bold">B+</td>
-          <td class="p-3">B+, AB+</td>
-          <td class="p-3">B+, B-, O+, O-</td>
-        </tr>
-        <tr>
-          <td class="p-3 font-bold">B-</td>
-          <td class="p-3">B+, B-, AB+, AB-</td>
-          <td class="p-3">B-, O-</td>
-        </tr>
-        <tr>
-          <td class="p-3 font-bold">AB+</td>
-          <td class="p-3">AB+</td>
-          <td class="p-3">All Groups</td>
-        </tr>
-        <tr>
-          <td class="p-3 font-bold">AB-</td>
-          <td class="p-3">AB+, AB-</td>
-          <td class="p-3">AB-, A-, B-, O-</td>
-        </tr>
-        <tr>
-          <td class="p-3 font-bold">O+</td>
-          <td class="p-3">O+, A+, B+, AB+</td>
-          <td class="p-3">O+, O-</td>
-        </tr>
-        <tr>
-          <td class="p-3 font-bold">O-</td>
-          <td class="p-3">All Groups</td>
-          <td class="p-3">O-</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- Donate Button -->
-  <div class="text-center mt-10">
-    <a href="#contact" class="px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-xl shadow-lg hover:opacity-90 transition">
-      Donate Blood
-    </a>
-  </div>
-</div>
-
-    </section>
-<div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
-
-    <!-- Contact Section -->
-<section id="contact" class="py-20 bg-dark">
+  <section id="home" class="hero-section">
     <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In <span class="gradient-text">Touch</span></h2>
-            <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+      <div class="floating mb-8">
+        <img src="Images/logo.png" alt="Logo" class="w-36 h-36 mx-auto rounded-full border-4 border-white shadow-2xl">
+      </div>
+      <h1 class="text-5xl md:text-7xl font-bold mb-6">Narayan Pur Bipader Bondhu</h1>
+      <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto font-light">
+        An NGO dedicated to Humanity & Social Welfare
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="#donate" class="btn-primary">Donate Now</a>
+        <a href="#posts" class="btn-primary" style="background: white; color: #06b6d4;">View Our Work</a>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 max-w-4xl mx-auto">
+        <div class="stats-card">
+          <h3 class="text-5xl font-bold mb-2" id="totalPosts">0</h3>
+          <p class="text-lg font-medium">Posts Shared</p>
         </div>
-        
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <!-- Contact Info -->
-            <div>
-                <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
-                <p class="text-slate-400 mb-8">
-                    Feel free to reach out to us for any support, collaboration, or contributions.
-We are always open to working together on social initiatives, donation drives, and community welfare activities to bring positive change.
-                </p>
-                
-                <div class="space-y-6">
-                    <div class="flex items-start">
-                        <div class="bg-slate-800 p-3 rounded-full mr-4">
-                            <i class="fas fa-map-marker-alt text-primary text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold mb-1">Location</h4>
-                            <p class="text-slate-400">Narayan Pur, Nadia, West Bengal, India</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start">
-                        <div class="bg-slate-800 p-3 rounded-full mr-4">
-                            <i class="fas fa-envelope text-primary text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold mb-1">Email</h4>
-                            <p class="text-slate-400">narayanpurbipaderbondhu@gmail.com</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start">
-                        <div class="bg-slate-800 p-3 rounded-full mr-4">
-                            <i class="fas fa-phone-alt text-primary text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold mb-1">Phone</h4>
-                            <p class="text-slate-400">+91 97337 25202</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="mt-8">
-                    <h4 class="font-bold mb-4">Follow Me</h4>
-                     <div class="flex space-x-8 mt-6">
-    <!-- Facebook -->
-    <a href="https://www.facebook.com/tariful.mia.2025" target="_blank" 
-       class="text-slate-400 hover:text-blue-600 transition">
-        <i class="fa-brands fa-facebook-f text-xl"></i>
-    </a>
-
-    <!-- WhatsApp -->
-    <a href="https://wa.me/9733725202" target="_blank" 
-       class="text-slate-400 hover:text-green-500 transition">
-        <i class="fa-brands fa-whatsapp text-xl"></i>
-    </a>
-
-    <!-- Google Maps -->
-    <a href="https://www.google.com/maps/place/23%C2%B055'01.0%22N+88%C2%B030'46.3%22E/@23.9169444,88.5128611,17z/data=!3m1!4b1!4m4!3m3!8m2!3d23.9169444!4d88.5128611!5m1!1e4?hl=en&entry=ttu&g_ep=EgoyMDI1MDgxMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" 
-       class="text-slate-400 hover:text-red-500 transition">
-        <i class="fa-solid fa-map-location-dot text-xl"></i>
-    </a>
-</div>
-
-
-                </div>
-            </div>
-            
-            <!-- Contact Form -->
-            <div>
-                <h3 class="text-2xl font-bold mb-6">Send Me a Message</h3>
-                <form id="contact-form" action="https://formspree.io/f/xpwzyppl" method="POST" class="space-y-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label for="name" class="block mb-2 font-medium">Your Name</label>
-                            <input type="text" name="name" id="name" class="w-full px-4 py-3 rounded-lg contact-input focus:outline-none" required>
-                        </div>
-                        <div>
-                            <label for="email" class="block mb-2 font-medium">Your Email</label>
-                            <input type="email" name="email" id="email" class="w-full px-4 py-3 rounded-lg contact-input focus:outline-none" required>
-                        </div>
-                    </div>
-                    <div>
-                        <label for="subject" class="block mb-2 font-medium">Subject</label>
-                        <input type="text" name="subject" id="subject" class="w-full px-4 py-3 rounded-lg contact-input focus:outline-none" required>
-                    </div>
-                    <div>
-                        <label for="message" class="block mb-2 font-medium">Message</label>
-                        <textarea name="message" id="message" rows="5" class="w-full px-4 py-3 rounded-lg contact-input focus:outline-none" required></textarea>
-                    </div>
-                    <button type="submit" class="px-8 py-3 rounded-full btn-primary font-medium w-full">
-                        Send Message <i class="fas fa-paper-plane ml-2"></i>
-                    </button>
-                </form>
-
-                <!-- Success / Error Message -->
-                <p id="form-status" class="mt-4 text-center font-medium"></p>
-            </div>
+        <div class="stats-card">
+          <h3 class="text-5xl font-bold mb-2" id="totalLikes">0</h3>
+          <p class="text-lg font-medium">Total Likes</p>
         </div>
+        <div class="stats-card">
+          <h3 class="text-5xl font-bold mb-2" id="totalComments">0</h3>
+          <p class="text-lg font-medium">Total Comments</p>
+        </div>
+      </div>
     </div>
-</section>
-    
-    <!-- Footer -->
-    <footer class="bg-darker py-12">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
-                    <a href="#" class="text-2xl font-bold gradient-text"></a>
-                    <p class="text-slate-400 mt-2">© bipaderbondhu ❤ All rights reserved.</p>
-                </div>
-                
-                
-            </div>
-            
-         <!--   <div class="border-t border-slate-800 mt-8 pt-8 text-center text-slate-500">
-    <p>
-        Made by 
-        <a href="https://www.linkedin.com/in/amir-sohel-sardar-735698243/" target="_blank" 
-           class="text-primary hover:underline font-medium">
-           Amir Sohel
-        </a>
-    </p>
-</div> -->
+  </section>
 
-            <div class="border-t border-slate-800 mt-8 pt-8 text-center text-slate-500">
-    <p>
-        © 2025 @bipaderbondhu❤️
-    </p>
-</div>
+  <section id="notices" class="py-20">
+    <div class="container mx-auto px-6">
+      <h2 class="section-title">🚨 Urgent Notices</h2>
+      <div id="noticesContainer" class="space-y-4 max-w-4xl mx-auto">
+        <div class="spinner"></div>
+      </div>
+      <div class="text-center">
+        <button id="showAllNoticesBtn" class="show-all-notices-btn" style="display: none;">
+          Show All Notices
+        </button>
+      </div>
+    </div>
+  </section>
 
+  <section id="about" class="py-20">
+    <div class="container mx-auto px-6">
+      <h2 class="section-title">About Us</h2>
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <img src="Images/img1.jpg" alt="About" class="rounded-2xl shadow-2xl w-full">
         </div>
-    </footer>
-    
-    <!-- Back to Top Button -->
-    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white shadow-lg hidden">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <script>
-  document.addEventListener("DOMContentLoaded", function () { 
-    
-    const btn = document.getElementById("view-all-btn");
-    const projects = document.querySelectorAll(".more-projects");
-
-    btn.addEventListener("click", function () {
-      projects.forEach(el => el.classList.remove("hidden")); // show hidden projects
-      btn.style.display = "none"; // hide button after click
-    });
-  });
-</script>
-<!-- Supabase Library -->
-<script src="https://unpkg.com/@supabase/supabase-js"></script>
-
-<script>
-  // ✅ Supabase Project
-  const SUPABASE_URL = "https://ftmzoyjspqtvfphjubql.supabase.co";
-  const SUPABASE_KEY =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ0bXpveWpzcHF0dmZwaGp1YnFsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTU2MjA2MjAsImV4cCI6MjA3MTE5NjYyMH0.nZDNlBSKF9vH37vT-TG_8lHhC9D4fcLbKWYa_St8Gyw";
-  const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
-  // Elements
-  const adminBtn = document.getElementById("adminBtn");
-  const adminModal = document.getElementById("adminModal");
-  const closeModal = document.getElementById("closeModal");
-  const loginForm = document.getElementById("loginForm");
-  const uploadForm = document.getElementById("uploadForm");
-  const loginBtn = document.getElementById("loginBtn");
-  const logoutBtn = document.getElementById("logoutBtn");
-  const galleryGrid = document.getElementById("gallery-grid");
-
-  let isAdmin = false; // track admin status
-
-  // ✅ Open / Close Modal
-  adminBtn.addEventListener("click", () => {
-    adminModal.classList.remove("hidden");
-    adminModal.classList.add("flex");
-  });
-  closeModal.addEventListener("click", () => {
-    adminModal.classList.add("hidden");
-    adminModal.classList.remove("flex");
-  });
-
-  // ✅ Login with Supabase Auth
-  loginBtn.addEventListener("click", async () => {
-    const email = document.getElementById("adminEmail").value;
-    const pass = document.getElementById("adminPass").value;
-
-    const { data, error } = await supabaseClient.auth.signInWithPassword({
-      email,
-      password: pass,
-    });
-
-    if (error) {
-      alert("Login failed: " + error.message);
-      return;
-    }
-
-    isAdmin = true;
-    loginForm.classList.add("hidden");
-    uploadForm.classList.remove("hidden");
-    loadGallery();
-  });
-
-  // ✅ Logout
-  logoutBtn.addEventListener("click", async () => {
-    await supabaseClient.auth.signOut();
-    isAdmin = false;
-    uploadForm.classList.add("hidden");
-    loginForm.classList.remove("hidden");
-    loadGallery();
-  });
-
-  // ✅ Upload Function
-  document.getElementById("uploadBtn").addEventListener("click", async () => {
-    const file = document.getElementById("photoInput").files[0];
-    const caption = document.getElementById("captionInput").value;
-
-    if (!file || !caption) {
-      alert("Please select file and caption");
-      return;
-    }
-
-    const fileName = `${Date.now()}-${file.name}`;
-
-    // 1. Upload image to Supabase Storage (bucket: gallery)
-    const { error: storageError } = await supabaseClient.storage
-      .from("gallery")
-      .upload(fileName, file);
-
-    if (storageError) {
-      alert("Upload failed: " + storageError.message);
-      return;
-    }
-
-    // 2. Get Public URL
-    const { data: publicData } = supabaseClient.storage
-      .from("gallery")
-      .getPublicUrl(fileName);
-    const publicURL = publicData.publicUrl;
-
-    // 3. Insert record into Supabase DB
-    const { error: dbError } = await supabaseClient
-      .from("gallery_photos")
-      .insert([{ image_url: publicURL, caption }]);
-
-    if (dbError) {
-      alert("Database error: " + dbError.message);
-      console.error(dbError);
-      return;
-    }
-
-    alert("Uploaded successfully!");
-    document.getElementById("photoInput").value = "";
-    document.getElementById("captionInput").value = "";
-
-    loadGallery(); // Refresh gallery
-  });
-
-  // ✅ Delete Photo
-  async function deletePhoto(id, imageUrl) {
-    if (!isAdmin) {
-      alert("Only admin can delete");
-      return;
-    }
-    if (!confirm("Are you sure you want to delete this photo?")) return;
-
-    const filePath = imageUrl.split("/").pop();
-
-    // Delete from DB
-    const { error: dbError } = await supabaseClient
-      .from("gallery_photos")
-      .delete()
-      .eq("id", id);
-
-    if (dbError) {
-      alert("Failed to delete from database: " + dbError.message);
-      return;
-    }
-
-    // Delete from storage
-    const { error: storageError } = await supabaseClient.storage
-      .from("gallery")
-      .remove([filePath]);
-
-    if (storageError) {
-      alert("Failed to delete from storage: " + storageError.message);
-      return;
-    }
-
-    alert("Photo deleted successfully!");
-    loadGallery();
-  }
-
-  // ✅ Load Gallery
-  async function loadGallery() {
-    const { data, error } = await supabaseClient
-      .from("gallery_photos")
-      .select("*")
-      .order("created_at", { ascending: false });
-
-    if (error) {
-      console.error(error);
-      return;
-    }
-
-    galleryGrid.innerHTML = "";
-
-    data.forEach((item) => {
-      const div = document.createElement("div");
-      div.className = "project-card rounded-xl overflow-hidden card-hover";
-
-      div.innerHTML = `
-        <a href="${item.image_url}" data-lightbox="gallery" data-title="${item.caption}">
-          <div class="h-48 overflow-hidden">
-            <img src="${item.image_url}" alt="${item.caption}" class="w-full h-full object-cover">
+        <div class="text-white">
+          <h3 class="text-4xl font-bold mb-6">Who We Are?</h3>
+          <p class="text-lg mb-6 leading-relaxed">
+            BipaderBondhu is a non-profit organization dedicated to serving humanity with compassion and commitment.
+            We work to support people in times of crisis, offering help to those facing poverty, disaster, or any form of hardship.
+          </p>
+          <div class="space-y-3 mb-6 text-lg">
+            <p><strong>Director:</strong> Tariful Mia</p>
+            <p><strong>Email:</strong> narayanpurbipaderbondhu@gmail.com</p>
+            <p><strong>Phone:</strong> +91 9733725202</p>
+            <p><strong>Location:</strong> Narayan Pur, Nadia, West Bengal, India</p>
           </div>
-        </a>
-        <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">${item.caption}</h3>
-          <p class="text-slate-400 mb-4">Uploaded via Admin Panel</p>
-          ${isAdmin ? `
-            <button onclick="deletePhoto(${item.id}, '${item.image_url}')"
-              class="bg-red-600 text-white px-3 py-1 rounded">Delete</button>
-          ` : ""}
-        </div>
-      `;
-      galleryGrid.appendChild(div);
-    });
-  }
-
-  // ✅ Auto-load gallery
-  loadGallery();
-</script>
-
-
-
-
-<script>
-  window.addEventListener("DOMContentLoaded", () => {
-    // Override loadGallery with timestamp display
-    window.loadGallery = async function() {
-      const { data, error } = await supabaseClient
-        .from("gallery_photos")
-        .select("*")
-        .order("created_at", { ascending: false });
-
-      if (error) {
-        console.error(error);
-        return;
-      }
-
-      galleryGrid.innerHTML = "";
-
-      data.forEach((item) => {
-        const div = document.createElement("div");
-        div.className = "project-card rounded-xl overflow-hidden card-hover";
-
-        // format created_at nicely
-        const formattedDate = new Date(item.created_at)
-          .toLocaleString("en-GB", { day: "2-digit", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" });
-
-        div.innerHTML = `
-          <a href="${item.image_url}" data-lightbox="gallery" data-title="${item.caption}">
-            <div class="h-48 overflow-hidden">
-              <img src="${item.image_url}" alt="${item.caption}" class="w-full h-full object-cover">
-            </div>
+          <a href="https://drive.google.com/file/d/1EI5mRZY-mGfezAxVz605lU3yC6Al9xfo/view?usp=sharing"
+             target="_blank" class="btn-secondary inline-block">
+            View Registration Certificate
           </a>
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2">${item.caption}</h3>
-            <p class="text-slate-400 mb-2">Uploaded on: ${formattedDate}</p>
-            <p class="text-slate-400 mb-4">Uploaded via Admin Panel</p>
-            ${isAdmin ? `
-              <button onclick="deletePhoto(${item.id}, '${item.image_url}')"
-                class="bg-red-600 text-white px-3 py-1 rounded">Delete</button>
-            ` : ""}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="posts" class="py-20">
+    <div class="container mx-auto px-6">
+      <h2 class="section-title">Our Activities & Posts</h2>
+      <div id="postsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="col-span-full text-center">
+          <div class="spinner"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="donate" class="py-20">
+    <div class="container mx-auto px-6">
+      <h2 class="section-title">Support Our Cause</h2>
+      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div class="donation-card">
+          <h3 class="text-3xl font-bold mb-6 text-gradient">Bank Details</h3>
+          <div class="space-y-3 text-gray-700 text-lg">
+            <p><strong>Account Name:</strong> Narayanpur Bipader Bondhu Welfare Society</p>
+            <p><strong>Account Number:</strong> 0332200100021066</p>
+            <p><strong>Bank:</strong> Punjab National Bank</p>
+            <p><strong>IFSC:</strong> PUNB0033220</p>
+            <p><strong>Branch:</strong> Nazirpur</p>
           </div>
-        `;
-        galleryGrid.appendChild(div);
-      });
-    };
+        </div>
+        <div class="donation-card text-center">
+          <h3 class="text-3xl font-bold mb-6 text-gradient">Scan to Donate</h3>
+          <img src="Images/qr.jpg" alt="QR Code" class="w-64 h-64 mx-auto rounded-xl shadow-lg">
+          <p class="mt-4 text-gray-600 text-lg">Scan with any UPI app</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    // Reload gallery with updated function
-    loadGallery();
-  });
-</script>
+  <section id="contact" class="py-20">
+  <div class="container mx-auto px-6">
+    <h2 class="section-title">Get In Touch</h2>
+    <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+      
+      <!-- Contact Info -->
+      <div class="text-white">
+        <h3 class="text-3xl font-bold mb-6">Contact Information</h3>
+        <div class="space-y-6 text-lg">
+          <div class="flex items-start space-x-4">
+            <i class="fas fa-map-marker-alt text-2xl"></i>
+            <div>
+              <h4 class="font-bold mb-1">Location</h4>
+              <p>Narayan Pur, Nadia, West Bengal, India</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <i class="fas fa-envelope text-2xl"></i>
+            <div>
+              <h4 class="font-bold mb-1">Email</h4>
+              <p>narayanpurbipaderbondhu@gmail.com</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <i class="fas fa-phone text-2xl"></i>
+            <div>
+              <h4 class="font-bold mb-1">Phone</h4>
+              <p>+91 9733725202</p>
+            </div>
+          </div>
+        </div>
 
+        <div class="flex space-x-6 mt-8">
+          <a href="https://www.facebook.com/tariful.mia.2025" target="_blank"
+             class="text-white text-3xl hover:scale-110 transition">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="https://wa.me/9733725202" target="_blank"
+             class="text-white text-3xl hover:scale-110 transition">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+          <a href="https://www.google.com/maps/place/23%C2%B055'01.0%22N+88%C2%B030'46.3%22E"
+             target="_blank" class="text-white text-3xl hover:scale-110 transition">
+            <i class="fas fa-map-location-dot"></i>
+          </a>
+        </div>
+      </div>
 
+      <!-- Contact Form -->
+      <div class="donation-card">
+        <form id="contactForm"
+              action="https://formspree.io/f/xpwzyppl"
+              method="POST"
+              class="space-y-4">
 
-<script>
-  // Hide the extra "Admin Panel" button by text match
-  document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll("a, button").forEach(el => {
-      if (el.textContent.trim() === "Admin Panel") {
-        el.style.display = "none"; 
+          <input type="text" name="name" placeholder="Your Name" required
+                 class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
+          
+          <input type="email" name="email" placeholder="Your Email" required
+                 class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
+          
+          <textarea name="message" placeholder="Your Message" rows="5" required
+                    class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"></textarea>
+          
+          <button type="submit" class="btn-primary w-full">
+            Send Message <i class="fas fa-paper-plane ml-2"></i>
+          </button>
+        </form>
+
+        <!-- Status Message -->
+        <p id="formStatus" class="text-center mt-4 font-medium text-white"></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('formStatus');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      status.textContent = "📨 Sending...";
+      const data = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (response.ok) {
+          status.textContent = "✅ Message sent successfully!";
+          form.reset();
+        } else {
+          status.textContent = "❌ Oops! Something went wrong.";
+        }
+      } catch (error) {
+        status.textContent = "❌ Failed to send. Please try again.";
       }
     });
-  });
-</script>
+  </script>
+</section>
+
+  <footer class="bg-black bg-opacity-40 backdrop-blur-lg py-8 border-t border-white border-opacity-20">
+    <div class="container mx-auto px-6 text-center text-white">
+      <p class="text-lg">© 2025 Bipader Bondhu. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div id="imageViewer" class="image-viewer">
+    <button class="close-viewer" onclick="closeImageViewer()">✕</button>
+    <div class="image-viewer-content">
+      <img id="viewerImage" src="" alt="Full Image">
+      <div class="image-viewer-controls">
+        <button class="zoom-btn" onclick="zoomIn()"><i class="fas fa-search-plus"></i></button>
+        <button class="zoom-btn" onclick="zoomOut()"><i class="fas fa-search-minus"></i></button>
+        <button class="zoom-btn" onclick="resetZoom()"><i class="fas fa-undo"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <div class="flex justify-between items-center mb-6">
+        <h3 class="text-3xl font-bold text-gradient">Welcome</h3>
+        <button onclick="closeModal('loginModal')" class="text-3xl text-gray-500 hover:text-gray-700">×</button>
+      </div>
+      <div class="auth-tabs">
+        <button class="auth-tab active" onclick="switchAuthTab('user')">User Login</button>
+        <button class="auth-tab" onclick="switchAuthTab('admin')">Admin Login</button>
+      </div>
+      <div id="userAuthContent" class="auth-content active">
+        <button onclick="signInWithGoogle()" class="w-full btn-primary mb-4 flex items-center justify-center space-x-3 text-lg">
+          <i class="fab fa-google"></i>
+          <span>Continue with Google</span>
+        </button>
+        <p class="text-center text-gray-500 text-sm">Sign in to like and comment on posts</p>
+        <p class="text-center text-red-500 text-xs mt-2">Note: Google Sign-In requires setup in the Supabase dashboard.</p>
+      </div>
+      <div id="adminAuthContent" class="auth-content">
+        <form id="adminLoginForm" class="space-y-4">
+          <input type="email" id="adminEmail" placeholder="Admin Email" required
+                 class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
+          <input type="password" id="adminPassword" placeholder="Admin Password" required
+                 class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
+          <button type="submit" class="btn-primary w-full">
+            <i class="fas fa-lock mr-2"></i>Admin Sign In
+          </button>
+        </form>
+        <p class="text-center text-gray-500 text-sm mt-4">Admin access required</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="postModal" class="modal">
+    <div class="modal-content">
+      <div class="flex justify-between items-center mb-6">
+        <h3 class="text-3xl font-bold text-gradient">Create Post</h3>
+        <button onclick="closeModal('postModal')" class="text-3xl text-gray-500 hover:text-gray-700">×</button>
+      </div>
+      <form id="postForm" class="space-y-4">
+        <input type="file" id="postImage" accept="image/*" required class="w-full p-3 border rounded-lg">
+        <textarea id="postCaption" placeholder="Write a caption..." rows="4" required
+                  class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"></textarea>
+        <button type="submit" class="btn-primary w-full">
+          <i class="fas fa-paper-plane mr-2"></i>Post
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div id="noticeModal" class="modal">
+    <div class="modal-content">
+      <div class="flex justify-between items-center mb-6">
+        <h3 class="text-3xl font-bold text-gradient">Create Urgent Notice</h3>
+        <button onclick="closeModal('noticeModal')" class="text-3xl text-gray-500 hover:text-gray-700">×</button>
+      </div>
+      <form id="noticeForm" class="space-y-4">
+        <input type="text" id="noticeTitle" placeholder="Notice Title" required
+               class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
+        <textarea id="noticeContent" placeholder="Notice Content..." rows="4" required
+                  class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"></textarea>
+        <button type="submit" class="btn-danger w-full">
+          <i class="fas fa-exclamation-triangle mr-2"></i>Post Notice
+        </button>
+      </form>
+    </div>
+  </div>
 
 
-
-
-
-
-
-
-
-    
-    <script src="script.js"></script>
+ <script src="script.js"></script>
 </body>
-
-
 </html>
-
-
