@@ -374,3 +374,49 @@
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
+
+
+/* Fix comment form for mobile */
+.comment-section form,
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.comment-section form input[type="text"],
+.comment-form input[type="text"] {
+  width: 100% !important;
+  flex: none;
+  box-sizing: border-box;
+}
+
+.comment-section form button,
+.comment-form button {
+  width: 100% !important;
+  flex: none;
+  min-height: 44px;
+}
+
+/* For larger screens, use horizontal layout */
+@media (min-width: 640px) {
+  .comment-section form,
+  .comment-form {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .comment-section form input[type="text"],
+  .comment-form input[type="text"] {
+    flex: 1;
+    width: auto !important;
+  }
+  
+  .comment-section form button,
+  .comment-form button {
+    width: auto !important;
+    flex: none;
+  }
+}
+
