@@ -67,7 +67,7 @@ async function signInWithGoogle() {
   try {
     const { error } = await supabaseClient.auth.signInWithOAuth({
       provider: 'google',
-      options: { redirectTo: window.location.origin }
+      options: { redirectTo: 'https://narayanpur1.github.io/bipaderbondhu/' }
     });
     if (error) throw error;
   } catch (error) {
@@ -590,3 +590,4 @@ async function initApp() {
 }
 
 window.addEventListener('DOMContentLoaded', initApp);
+
