@@ -339,7 +339,7 @@ async function loadPosts() {
               `).join('') : '<p class="text-gray-500 text-center py-3">No comments yet</p>'}
             </div>
             ${currentUser ? `
-              <form onsubmit="addComment(event, '${post.id}')" class="flex space-x-3">
+             <form onsubmit="addComment(event, '${post.id}')" class="comment-form">
                 <input type="text" placeholder="Add a comment..." required class="flex-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500" name="comment">
                 <button type="submit" class="btn-secondary text-sm px-6">Post</button>
               </form>
@@ -590,5 +590,6 @@ async function initApp() {
 }
 
 window.addEventListener('DOMContentLoaded', initApp);
+
 
 
