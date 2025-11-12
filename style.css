@@ -374,4 +374,35 @@
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
+
+/* --- FIX: Ensure message/comment post buttons show properly on mobile --- */
+@media (max-width: 768px) {
+  #postsContainer,
+  .comment-section,
+  .message-post,
+  #postForm,
+  #comment-box,
+  #submit-comment {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* prevent grid clipping on small screens */
+  #postsContainer {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  /* ensure post/comment modal fits small screen */
+  .modal-content {
+    width: 95% !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+  }
+}
+
   
+
