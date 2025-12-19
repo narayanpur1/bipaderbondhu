@@ -355,7 +355,56 @@
     </div>
   </div>
 
+ <!-- WEBSITE MIGRATION OVERLAY -->
+<div id="siteMigrationOverlay" style="
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  font-family: Poppins, sans-serif;
+">
+  <div style="max-width: 600px; padding: 30px;">
+    <img src="Images/logo.png" alt="Bipader Bondhu" style="width:120px;margin:0 auto 20px;border-radius:50%;">
+    
+    <h1 style="font-size:2.2rem;font-weight:700;margin-bottom:15px;">
+      Website Address Updated
+    </h1>
+
+    <p style="font-size:1.1rem;line-height:1.6;margin-bottom:25px;opacity:0.9;">
+      Our website has moved to a new and improved platform for better experience.
+      You are being redirected automatically.
+    </p>
+
+    <p style="font-size:1rem;margin-bottom:10px;">
+      👉 New Website:
+    </p>
+
+    <p style="font-size:1.1rem;font-weight:600;color:#06b6d4;">
+      https://bipaderbondhu.vercel.app/
+    </p>
+
+    <p style="margin-top:25px;font-size:0.9rem;opacity:0.7;">
+      Please update your bookmark.
+    </p>
+  </div>
+</div>
+
+<script>
+  // Redirect after short delay (no cancel option)
+  setTimeout(() => {
+    window.location.href = "https://bipaderbondhu.vercel.app/";
+  }, 3000); // 3 seconds
+</script>
+
+
+
 
  <script src="script.js"></script>
 </body>
 </html>
+
